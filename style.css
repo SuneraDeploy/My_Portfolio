@@ -179,3 +179,46 @@ span {
   margin: 2rem 0 3rem;
 
 }
+
+.educational h2 {
+  margin-bottom: 5rem;
+}
+
+.educational-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  
+}
+
+.educational-container .educational-box {
+  flex: 1 1 30rem;
+  background: var(--second-bg-color);
+  padding: 3rem 2rem 4rem;
+  border-radius: 2rem;
+  text-align: center;
+  border: .2rem solid var(--bg-color);
+  transition: .5s ease;
+}
+
+.educational-container .educational-box:hover {
+  border-color: var(--main-color);
+  transform: scale(1.02);
+}
+
+.educational-box i {
+  font-size: 7rem;
+  color: var(--main-color);
+}
+
+.educational-box h3 {
+  font-size: 2.6rem;
+}
+
+.educational-box p {
+  font-size: 1.6rem;
+  margin: 1rem 0 3rem;
+}
+
