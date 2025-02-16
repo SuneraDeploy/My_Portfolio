@@ -62,3 +62,44 @@ const typed = new Typed('.multiple-text',{
   backDelay: 1000,
   loop: true
 });
+
+const form = document.querySelector("form");
+form.addEventListener("submit", (e) => {
+  e.preventDefault(); // Prevent default form submission
+
+  // Collect form data
+  const name = document.getElementById("name");
+  const email = document.getElementById("email");
+  const phone = document.getElementById("phone");
+  const subject = document.getElementById("Subject");
+  const message = document.getElementById("message");
+
+  // Validate form fields
+  if (!name || !email || !phone || !subject || !message) {
+    alert("Please fill out all fields.");
+    return;
+  }
+  function sendEmail(){
+    const bodyMessage = 'full Name: $(name.value)<br> Email:$(email.value';
+
+  // Send email using SMTP.js
+  Email.send({
+    Host: "smtp.mailendo.com",
+    Username: "supunlakshan085@gmail.com",
+    Password: "FE4323FCCE7EBF237021DA71A46C6A8E8490",
+    To: 'supunlakshan085@gmail.com',
+    From: "supunlakshan085@gmail.com",
+    Subject: subject.value,
+    Body: bodyMessage
+  }).then(
+    message => {
+      alert("Message sent successfully!");
+      form.reset(); // Clear the form after successful submission
+    }
+  ).catch(
+    error => {
+      alert("Failed to send message. Please try again later.");
+      console.error(error);
+    }
+  );
+});

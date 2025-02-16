@@ -46,7 +46,7 @@
                 <a href="http://t.me/SuneraChandeepa"><i class='bx bxl-telegram'></i></a>
                 <a href="https://github.com/SuneraDeploy"><i class='bx bxl-github' ></i></a>
              </div>
-             <a href="#" class="btn">Download CV</a>
+             <a href="L P S C Sandaruwan.pdf" class="btn--download" download>Download CV</a>
         </div>
         <div class="home-img">
             <img src="Images/22.png" alt="">
@@ -170,17 +170,32 @@
 
       <form action="#">
         <div class="input-box">
-          <input type="text" placeholder="Full name">
-          <input type="email" placeholder="Email Address">
-          
+          <div class="input-field field">
+            <input type="text" placeholder="Full name" id="name" class="item" autocomplete="off">
+            <div class="error-text">Full name can't be blank</div>
+          </div>
+
+          <div class="input-field field">
+            <input type="text" placeholder="Email Address" id="email" class="item" autocomplete="off">
+            <div class="error-text">Email Address can't be blank</div>
+          </div>
+
         </div>
         <div class="input-box">
-          <input type="number" placeholder="Mobile Number">
-          <input type="text" placeholder="Email Subject">
-          
+          <div class="input-field field">
+            <input type="text" placeholder="Mobile Number" id="phone" class="item" autocomplete="off">
+            <div class="error-text">Mobile Number can't be blank</div>
+          </div>
+          <div class="input-field field">
+            <input type="text" placeholder="Email Subject" id="subject" class="item" autocomplete="off">
+            <div class="error-text">Email Subject can't be blank</div>
+          </div>
         </div>
-        <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
-        <input type="submit" value="Send Message" class="btn">
+        <div class="textarea-field field">
+          <textarea name="" id="message" cols="30" rows="10" placeholder="Your Message" class="item"></textarea>
+          <div class="error-text">Enter the your Message can't be blank</div>
+        </div>
+        <button type="submit">Send Message</button>
       </form>
      </section>
 
@@ -193,6 +208,9 @@
         <a href="#home"><i class='bx bx-up-arrow-alt' ></i></a>
       </div>
      </footer>
+
+     <!-- email send -->
+     <script src="https://smtpjs.com/v3/smtp.js"></script>
 
      <!-- scroll reveal -->
 
