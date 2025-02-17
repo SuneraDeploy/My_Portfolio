@@ -64,37 +64,41 @@ const typed = new Typed('.multiple-text',{
 });
 
 const form = document.querySelector("form");
+
 form.addEventListener("submit", (e) => {
   e.preventDefault(); // Prevent default form submission
 
   // Collect form data
-  const name = document.getElementById("name");
-  const email = document.getElementById("email");
-  const phone = document.getElementById("phone");
-  const subject = document.getElementById("Subject");
-  const message = document.getElementById("message");
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const phone = document.getElementById("phone").value;
+  const subject = document.getElementById("subject").value; // Ensure this matches the HTML id
+  const message = document.getElementById("message").value;
 
   // Validate form fields
   if (!name || !email || !phone || !subject || !message) {
     alert("Please fill out all fields.");
     return;
   }
-  function sendEmail(){
-    const bodyMessage = 'full Name: $(name.value)<br> Email:$(email.value';
 
   // Send email using SMTP.js
   Email.send({
     Host: "smtp.mailendo.com",
     Username: "supunlakshan085@gmail.com",
-    Password: "FE4323FCCE7EBF237021DA71A46C6A8E8490",
+    Password: "004DB6E149D075824576D631BB59389E4534",
     To: 'supunlakshan085@gmail.com',
     From: "supunlakshan085@gmail.com",
     Subject: subject.value,
-    Body: bodyMessage
+    Body: `Name: ${name} <br> Email: ${email} <br> Phone: ${phone} <br> Message: ${message}`
   }).then(
     message => {
-      alert("Message sent successfully!");
-      form.reset(); // Clear the form after successful submission
+      if (message == "OK") {
+        Swal.fire({
+          title: "Success!",
+          text: "Message sent Successfully!",
+          icon: "success"
+        });
+      } // Clear the form after successful submission
     }
   ).catch(
     error => {
